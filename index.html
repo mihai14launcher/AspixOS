@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AspixOS - Fork of Windows </title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/ScrollTrigger.min.js"></script>
+  <script src="scripts.js" defer></script>
+</head>
+<body>
+    <style>
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #0b1b2e;
+    color: #eaeaea;
+    overflow-x: hidden;
+}
+
+a {
+    color: #00aaff;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #0088cc;
+}
+
+.container {
+    max-width: 1170px;
+    margin: auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Header Styles */
+header {
+    background: #000;
+    padding: 1em 0;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 1em;
+}
+
+header nav ul li a {
+    color: #eaeaea;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #00aaff;
+}
+
+/* Hero Section */
+.hero-section {
+    background: url('hero-bg.jpg') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+.hero-content {
+    animation: fadeIn 2s ease-in-out;
+}
+
+.hero-section h1 {
+    font-size: 4em;
+    margin: 0.5em 0;
+    color: #00aaff;
+}
+
+.hero-section p {
+    font-size: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+.cta-button {
+    background: #00aaff;
+    color: white;
+    padding: 1em 2em;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.3s;
+    font-size: 1.2em;
+}
+
+.cta-button:hover {
+    background: #0088cc;
+    transform: scale(1.1);
+}
+
+/* Features Section */
+#features {
+    padding: 6em 2em;
+    text-align: center;
+    background: #0b1b2e;
+}
+
+#features h2 {
+    font-size: 2.5em;
+    margin-bottom: 1.5em;
+    color: #00aaff;
+}
+
+.features-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.feature {
+    background: #122438;
+    padding: 2em;
+    margin: 1em;
+    border-radius: 10px;
+    width: 30%;
+    transition: transform 0.3s;
+}
+
+.feature:hover {
+    transform: translateY(-10px);
+}
+
+.feature h3 {
+    font-size: 1.8em;
+    margin-bottom: 0.5em;
+    color: #00aaff;
+}
+
+.feature p {
+    font-size: 1.2em;
+}
+
+/* Download Section */
+#download {
+    padding: 6em 2em;
+    text-align: center;
+    background: #0b1b2e;
+}
+
+#download h2 {
+    font-size: 2.5em;
+    margin-bottom: 1.5em;
+    color: #00aaff;
+}
+
+#download p {
+    font-size: 1.2em;
+    margin-bottom: 2em;
+}
+
+/* Static download-button styling */
+.download-button {
+    background: #00aaff;
+    color: white;
+    padding: 1em 2em;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.3s;
+    font-size: 1.2em;
+    display: inline-block; /* Ensure button is displayed properly */
+}
+
+.download-button:hover {
+    background: #0088cc;
+    transform: scale(1.1);
+}
+
+/* Footer */
+.footer {
+    background-color: #121212;
+    padding: 70px 0;
+    color: #bbb;
+}
+
+.footer-col {
+    width: 25%;
+    padding: 0 15px;
+}
+
+.footer-col h4 {
+    font-size: 18px;
+    color: #ffffff;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 500;
+    position: relative;
+}
+
+.footer-col h4::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: #00aaff;
+    height: 2px;
+    box-sizing: border-box;
+    width: 50px;
+}
+
+.footer-col ul li:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #bbbbbb;
+    text-decoration: none;
+    font-weight: 300;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+    color: #ffffff;
+    padding-left: 8px;
+}
+
+.footer-col .social-links a {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 10px 10px 0;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #ffffff;
+    transition: all 0.5s ease;
+}
+
+.footer-col .social-links a:hover {
+    color: #121212;
+    background-color: #ffffff;
+}
+1
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInButton {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+    .footer-col {
+        width: 50%;
+        margin-bottom: 30px;
+    }
+
+    .feature {
+        width: 100%;
+    }
+}
+
+@media (max-width: 574px) {
+    .footer-col {
+        width: 100%;
+    }
+}
+
+    </style>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#download">Download</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section id="home" class="hero-section">
+    <div class="hero-content">
+      <h1>AspixOS</h1>
+      <p>A fork of Windows that its only to make windows better not to be a 💩.</p>
+      <a href="#download" class="cta-button">Use AspixOS now!</a>
+    </div>
+  </section>
+  <section id="features">
+    <h2>Features</h2>
+    <div class="features-container">
+      <div class="feature">
+        <h3>Fast</h3>
+        <p>Optimized for speed and performance.</p>
+      </div>
+      <div class="feature">
+        <h3>Secure</h3>
+        <p>Enhanced security features to protect your data.</p>
+      </div>
+      <div class="feature">
+        <h3>Customizable</h3>
+        <p>Personalize your OS with extensive customization options.</p>
+      </div>
+            <div class="feature">
+        <h3>No telemetry</h3>
+        <p>AspixOS remove every single telemetry from your system.</p>
+      </div>
+    </div>
+  </section>
+  <section id="download">
+    <h2>Download AspixOS</h2>
+    <p>Get the latest version of AspixOS and enhance your Windows experience.</p>
+    <a href="download" class="download-button">Download Now</a>
+  </section>
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="footer-col">
+          <h4>AspixOS</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Our Mission</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Source Code</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Get Help</h4>
+          <ul>
+            <li><a href="#">Bugs</a></li>
+            <li><a href="#">Errors</a></li>
+            <li><a href="#">Critical Errors</a></li>
+            <li><a href="#">Last Updates</a></li>
+            <li><a href="#">Report something</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Updates</h4>
+          <ul>
+            <li><a href="#">AspixOS</a></li>
+            <li><a href="#">DockerHelper</a></li>
+            <li><a href="#">VOX</a></li>
+            <li><a href="#">DockClient</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Follow Us</h4>
+          <div class="social-links">
+            <a href="https://github.com/mihai14launcher"><i class="fab fa-github"></i></a>
+            <a href="https://discord.gg/PXTtxEK7g8"><i class="fab fa-discord"></i></a>
+            <a href="https://terminal-cli-vox.vercel.app"><i class="fa fa-terminal"></i></a>
+            <a href="https://uptime.vox.onrender.com"><i class="fa fa-wifi"></i></a>
+            <a href="https://facebook.com"><i class="fab fa-facebook"></i></a>
+            <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+            <a href="https://dockerhelper.onrender.com"><i class="fab fa-docker"></i></a>
+            <a href="https://youtube.com"><i class="fab fa-youtube"></i></a>
+            <a href="https://microsoft.com"><i class="fab fa-windows"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+    // GSAP animations
+    gsap.from(".hero-content", { duration: 1.5, opacity: 0, y: -50 });
+
+    // Scroll animations
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Animate features on scroll
+    gsap.utils.toArray(".feature").forEach(feature => {
+        gsap.fromTo(feature, { opacity: 0, y: 50 }, {
+            opacity: 1,
+            y: 0,
+            scrollTrigger: {
+                trigger: feature,
+                start: "top 80%",
+                end: "top 30%",
+                toggleActions: "play none none reverse",
+                scrub: true
+            }
+        });
+    });
+
+    // Animate only the download button
+    gsap.fromTo("#download .download-button", 
+        {
+            opacity: 0,
+            scale: 0.8
+        }, 
+        {
+            opacity: 1,
+            scale: 1,
+            duration: 1,
+            scrollTrigger: {
+                trigger: "#download",
+                start: "top 80%",
+                end: "top 30%",
+                toggleActions: "play none none reverse",
+                scrub: true
+            }
+        });
+});
+
+
+  </script>
+</body>
+</html>
