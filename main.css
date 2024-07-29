@@ -1,0 +1,291 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #0b1b2e;
+    color: #eaeaea;
+    overflow-x: hidden;
+}
+
+a {
+    color: #00aaff;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #0088cc;
+}
+
+.container {
+    max-width: 1170px;
+    margin: auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Header Styles */
+header {
+    background: #000;
+    padding: 1em 0;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 1em;
+}
+
+header nav ul li a {
+    color: #eaeaea;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #00aaff;
+}
+
+/* Hero Section */
+.hero-section {
+    background: url('hero-bg.jpg') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+.hero-content {
+    animation: fadeIn 2s ease-in-out;
+}
+
+.hero-section h1 {
+    font-size: 4em;
+    margin: 0.5em 0;
+    color: #00aaff;
+}
+
+.hero-section p {
+    font-size: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+.cta-button {
+    background: #00aaff;
+    color: white;
+    padding: 1em 2em;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.3s;
+    font-size: 1.2em;
+}
+
+.cta-button:hover {
+    background: #0088cc;
+    transform: scale(1.1);
+}
+
+/* Features Section */
+#features {
+    padding: 6em 2em;
+    text-align: center;
+    background: #0b1b2e;
+}
+
+#features h2 {
+    font-size: 2.5em;
+    margin-bottom: 1.5em;
+    color: #00aaff;
+}
+
+.features-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.feature {
+    background: #122438;
+    padding: 2em;
+    margin: 1em;
+    border-radius: 10px;
+    width: 30%;
+    transition: transform 0.3s;
+}
+
+.feature:hover {
+    transform: translateY(-10px);
+}
+
+.feature h3 {
+    font-size: 1.8em;
+    margin-bottom: 0.5em;
+    color: #00aaff;
+}
+
+.feature p {
+    font-size: 1.2em;
+}
+
+/* Download Section */
+#download {
+    padding: 6em 2em;
+    text-align: center;
+    background: #0b1b2e;
+}
+
+#download h2 {
+    font-size: 2.5em;
+    margin-bottom: 1.5em;
+    color: #00aaff;
+}
+
+#download p {
+    font-size: 1.2em;
+    margin-bottom: 2em;
+}
+
+/* Static download-button styling */
+.download-button {
+    background: #00aaff;
+    color: white;
+    padding: 1em 2em;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.3s;
+    font-size: 1.2em;
+    display: inline-block; /* Ensure button is displayed properly */
+}
+
+.download-button:hover {
+    background: #0088cc;
+    transform: scale(1.1);
+}
+
+/* Footer */
+.footer {
+    background-color: #121212;
+    padding: 70px 0;
+    color: #bbb;
+}
+
+.footer-col {
+    width: 25%;
+    padding: 0 15px;
+}
+
+.footer-col h4 {
+    font-size: 18px;
+    color: #ffffff;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 500;
+    position: relative;
+}
+
+.footer-col h4::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: #00aaff;
+    height: 2px;
+    box-sizing: border-box;
+    width: 50px;
+}
+
+.footer-col ul li:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #bbbbbb;
+    text-decoration: none;
+    font-weight: 300;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+    color: #ffffff;
+    padding-left: 8px;
+}
+
+.footer-col .social-links a {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 10px 10px 0;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #ffffff;
+    transition: all 0.5s ease;
+}
+
+.footer-col .social-links a:hover {
+    color: #121212;
+    background-color: #ffffff;
+}
+1
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInButton {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+    .footer-col {
+        width: 50%;
+        margin-bottom: 30px;
+    }
+
+    .feature {
+        width: 100%;
+    }
+}
+
+@media (max-width: 574px) {
+    .footer-col {
+        width: 100%;
+    }
+}
