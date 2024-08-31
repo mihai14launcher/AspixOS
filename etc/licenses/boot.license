@@ -1,0 +1,6 @@
+OS= AspixOS
+Data= 104901929381
+PACKAGE = FREE
+Workaround = PY * JS
+
+LICENSES = 4

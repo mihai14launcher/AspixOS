@@ -1,0 +1,8 @@
+[fullcontrol]@aspixos> = TRUE
+PREFIX = 00 - 1 - 01
+USER-PERM = ALL
+PY = JS
+JS = 0
+PY = 2
+
+LICENSES = 4

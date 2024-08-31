@@ -1,0 +1,9 @@
+OS = ASPIXOS
+DEFAULT PREFIX = aspixos >
+> = TRUE
+
+00 00 10 01 00 10 01 = 2
+PY = 5
+JS = 10
+
+END
